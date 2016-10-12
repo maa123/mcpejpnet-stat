@@ -18,7 +18,25 @@ color:#333;
 <p>Wiki:<span id="stwiki">checking...</span></p>
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+$(function(){
+
+});
+function chsv(url){
+$.ajax({
+'url':,
+'dataType':'json'
+}).done(function(r){
+if(r['query']['count']==1){
+$('#stwiki').text('Online');
+}else{
+$('#stwiki').text('Offline');
+}
+}).fail(function(){
+$('#stwiki').text('エラー');
+});
+}
 </script>
 </body>
 </html>
