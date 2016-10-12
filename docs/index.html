@@ -21,11 +21,11 @@ color:#333;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 $(function(){
-
+chsv('https://mcpejp.net');
 });
 function chsv(url){
 $.ajax({
-'url':,
+'url':"https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20WHERE%20url%3D'"+url+"'&format=json&diagnostics=true&callback=",
 'dataType':'json'
 }).done(function(r){
 if(r['query']['count']==1){
