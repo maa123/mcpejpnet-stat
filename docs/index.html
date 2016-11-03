@@ -9,6 +9,13 @@
 body{
 text-align:center;
 color:#333;
+background-color:#eee;
+}
+.on{
+color:#4CAF50;
+}
+.off{
+color:#F44336;
 }
 </style>
 </head>
@@ -35,8 +42,10 @@ $.ajax({
 }).done(function(r){
 if(r['query']['count']==1){
 $('#stwiki').text('Online');
+$('#stwiki').addClass('on');
 }else{
 $('#stwiki').text('Offline');
+$('#stwiki').addClass('off');
 }
 }).fail(function(){
 $('#stwiki').text('エラー');
