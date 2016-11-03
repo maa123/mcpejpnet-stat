@@ -23,6 +23,7 @@ color:#F44336;
 <main>
 <div>
 <h2>MCPE JP Network Status</h2>
+<p>Main:<span id="stmain">checking...</span></p>
 <p>Wiki:<span id="stwiki">checking...</span></p>
 
 </div>
@@ -33,22 +34,23 @@ color:#F44336;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 $(function(){
-chsv('http://wiki.mcpejp.net');
+chsv('https://wiki.mcpejp.net','#stmain');
+chsv('http://wiki.mcpejp.net','#stwiki');
 });
-function chsv(url){
+function chsv(url,que){
 $.ajax({
 'url':"https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20WHERE%20url%3D'"+url+"'&format=json&diagnostics=true&callback=",
 'dataType':'json'
 }).done(function(r){
 if(r['query']['count']==1){
-$('#stwiki').text('Online');
-$('#stwiki').addClass('on');
+$(que).text('Online');
+$(que).addClass('on');
 }else{
-$('#stwiki').text('Offline');
-$('#stwiki').addClass('off');
+$(que).text('Offline');
+$(que).addClass('off');
 }
 }).fail(function(){
-$('#stwiki').text('エラー');
+$(que).text('エラー');
 });
 }
 </script>
