@@ -25,7 +25,7 @@ color:#F44336;
 <h2>MCPE JP Network Status</h2>
 <p>Main:<span id="stmain">checking...</span></p>
 <p>Wiki:<span id="stwiki">checking...</span></p>
-
+<p>Dev:<span id="stdev">checking...</span></p>
 </div>
 </main>
 <fotter>
@@ -36,8 +36,11 @@ color:#F44336;
 $(function(){
 chsv('https://wiki.mcpejp.net','#stmain');
 chsv('http://wiki.mcpejp.net','#stwiki');
+chsv('https://dev.mcpejp.net','#stdev');
 });
 function chsv(url,que){
+$(que).removeClass('on');
+$(que).removeClass('off');
 $.ajax({
 'url':"https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20WHERE%20url%3D'"+url+"'&format=json&diagnostics=true&callback=",
 'dataType':'json'
