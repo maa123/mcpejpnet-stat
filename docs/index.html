@@ -25,6 +25,7 @@ color:#F44336;
 <h2>MCPE JP Network Status</h2>
 <p>Main:<span id="stmain">checking...</span></p>
 <p>Wiki:<span id="stwiki">checking...</span></p>
+<p>Forum:<span id="stfm">checking...</span></p>
 <p>Dev:<span id="stdev">checking...</span></p>
 </div>
 </main>
@@ -36,6 +37,7 @@ color:#F44336;
 $(function(){
 chsv('https://wiki.mcpejp.net','#stmain');
 chsv('http://wiki.mcpejp.net','#stwiki');
+chsv('http://forum.mcpejp.net','#stfm');
 chsv('https://dev.mcpejp.net','#stdev');
 });
 function chsv(url,que){
